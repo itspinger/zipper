@@ -7,7 +7,7 @@ def setSpigotEngine(version, settings):
 
 # Open the configuration file
 # And setup the server based on the engine
-file = open('../config.json')
+file = open('../build.json')
 
 # Read the data
 data = json.load(file)

@@ -1,0 +1,5 @@
+{
+	"engine": "spigot",
+	"version": "all",
+	"output-directory": "../serverJars"
+}
