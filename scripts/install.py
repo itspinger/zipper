@@ -1,4 +1,5 @@
-import json, os
+import json, os, subprocess
+from subprocess import Popen
 
 # List of approved versions to download
 # Downloaded from here: https://getbukkit.org/download/spigot
@@ -74,12 +75,18 @@ else:
 # Check if build tools file exists...
 print("Checking for the buildtools.bat file")
 dataFolder = os.path.join(os.getcwd(), "data")
-buildTools = os.path.join(dataFolder, "buildtools.bat")
+buildTools = os.path.join(dataFolder, "build.sh")
 
 if not os.path.exists(buildTools):
     print("Couldn't find buildtools.bat file, generating it...")
 else:
     print("buildtools.bat file exists, we're good to go.")
+
+for v in versions[::-1]:
+    if not (v == 'all'):
+        print("Running for version %s" % v)
+        os.system(dataFolder + "./build.sh " + v)
+        #Process = subprocess.call([dataFolder + "./build.sh " + v], shell=True, stdout=subprocess.STDOUT)
 
 # Close the file to quit the process
 file.close()
