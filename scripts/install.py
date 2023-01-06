@@ -28,13 +28,6 @@ if not os.path.exists(buildTools):
 else:
     print("install.sh file exists, we're good to go.")
 
-
-#for v in versions[::-1]:
-    #if not (v == 'all'):
-      #  print("Running for version %s" % v)
-       # os.system(dataFolder + "./build.sh " + v)
-       # #Process = subprocess.call([dataFolder + "./build.sh " + v], shell=True, stdout=subprocess.STDOUT)
-
 # Close the file to quit the process
 file.close()
 

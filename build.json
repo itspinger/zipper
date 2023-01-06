@@ -1,7 +1,6 @@
 {
 	"engine": "spigot",
 	"version": "1.19.2",
-	"output-directory": "../",
 	"settings": {
 		"keep-world": true
 	}
