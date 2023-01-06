@@ -45,7 +45,7 @@ def checkValidVersion(data):
         print("See allowed verisons here: " + str(versions))
         exit()
 
-    print("Found a installation for the " + data['version'] + " version")
+    print("Found a installation for the `" + data['version'] + "` version")
 
 file = open('../install.json')
 
@@ -55,5 +55,33 @@ data = json.load(file)
 # Check for valid data
 checkValidEngine(data)
 checkValidVersion(data)
+
+# Get the properties
+engine = data['engine']
+version = data['version']
+outputDir = data['output-directory']
+
+# Update
+outputDir = os.path.join(outputDir, "serverJars")
+
+# Create a directory at the specified location
+if not os.path.exists(outputDir):
+    os.makedirs(outputDir)
+    print("Creating the output directory at location -> '% s'" % outputDir)
+else:
+    print("Server Jars directory already exists, skipping...")
+
+# Check if build tools file exists...
+print("Checking for the buildtools.bat file")
+dataFolder = os.path.join(os.getcwd(), "data")
+buildTools = os.path.join(dataFolder, "buildtools.bat")
+
+if not os.path.exists(buildTools):
+    print("Couldn't find buildtools.bat file, generating it...")
+else:
+    print("buildtools.bat file exists, we're good to go.")
+
+# Close the file to quit the process
+file.close()
 
 
