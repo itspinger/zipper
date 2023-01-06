@@ -1,3 +1,5 @@
+import os
+
 # List of approved versions to download
 # Downloaded from here: https://getbukkit.org/download/spigot
 versions = [
@@ -54,4 +56,13 @@ def validateInstallVersion(data):
     # The installation is valid
     print("Found a valid installation for the `" + data['version'] + "` version")
     return version
+
+# This method validates the output directory
+# This directory must be defined, otherwise the program will exit
+def validateOutputDirectory(data):
+    if not("output-directory" in data):
+        print("Error: Couldn't find the output directory")
+        exit()
+
+    return os.path.join(data['output-directory'], "serverJars")
     

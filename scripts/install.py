@@ -5,17 +5,10 @@ file = open('../install.json')
 # Read the json data
 data = json.load(file)
 
-# Check for valid data
-validateJavaVersions(data)
-getJavaVersion(data)
-
 # Get the properties
 engine = vld.validateEngine(data)
 version = vld.validateInstallVersion(data)
-outputDir = os.path.join(data['output-directory'], "serverJars")
-
-# Update
-outputDir = os.path.join(outputDir, "serverJars")
+outputDir = vld.validateOutputDirectory(data)
 
 # Create a directory at the specified location
 if not os.path.exists(outputDir):
