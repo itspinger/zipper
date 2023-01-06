@@ -8,7 +8,7 @@ data = json.load(file)
 # Get the properties
 engine = vld.validateEngine(data)
 version = vld.validateInstallVersion(data)
-outputDir = vld.validateOutputDirectory(data)
+outputDir = vld.validateOutputDirectory()
 
 # Create a directory at the specified location
 if not os.path.exists(outputDir):

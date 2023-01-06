@@ -1,4 +1,4 @@
-import os
+import os, config as cfg
 
 # List of approved versions to download
 # Downloaded from here: https://getbukkit.org/download/spigot
@@ -59,10 +59,7 @@ def validateInstallVersion(data):
 
 # This method validates the output directory
 # This directory must be defined, otherwise the program will exit
-def validateOutputDirectory(data):
-    if not("output-directory" in data):
-        print("Error: Couldn't find the output directory")
-        exit()
-
-    return os.path.join(data['output-directory'], "serverJars")
+def validateOutputDirectory():
+    # Return the updated data
+    return os.path.join(cfg.installdir(), "serverJars")
     
