@@ -1,4 +1,4 @@
-import json, os, subprocess, validation as vld
+import json, os, sys, subprocess, validation as vld
 import urllib
 from urllib.request import urlopen
 
@@ -35,9 +35,14 @@ def getJavaVersions(version):
 # Read the json data
 data = json.load(file)
 
+if (len(sys.argv) != 2 or sys.argv[1] == ''):
+    print("Must include <version> to install when running this script")
+    print("Run this script with: ./install.sh <version>")
+    exit(-1)
+
 # Get the properties
+version = vld.validateInstallVersion(sys.argv[1])
 engine = vld.validateEngine(data)
-version = vld.validateInstallVersion(data)
 outputDir = vld.validateOutputDirectory()
 
 # Create a directory at the specified location
@@ -57,6 +62,9 @@ if not os.path.exists(buildTools):
     exit()
 else:
     print("Found the install.sh file inside the data folder, continuing..")
+
+if (version != "all"):
+    
 
 # Close the file to quit the process
 file.close()

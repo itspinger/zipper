@@ -39,22 +39,15 @@ def validateEngine(data):
 
 # This method validates the version to install
 # Allowed versions are defined in the list above
-def validateInstallVersion(data):
-    if not("version" in data):
-        print("Error: You must specify a version to install")
-        exit()
-
-    # Get the version
-    version = data['version']
-    
+def validateInstallVersion(version):
     # Check if the version is valid from the above list
     if not(version in versions):
-        print("Error: Unknown server version -> " + data['version'])
+        print("Error: Unknown server version -> " + version)
         print("See allowed versions here: " + str(versions))
         exit()
 
     # The installation is valid
-    print("Found a valid installation for the `" + data['version'] + "` version")
+    print("Found a valid installation for the `" + version + "` version")
     return version
 
 # This method validates the output directory
