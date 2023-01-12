@@ -1,4 +1,4 @@
-import json, os, sys, subprocess, validation as vld
+import json, os, sys, subprocess, validation as vld, config as cfg
 import urllib
 from urllib.request import urlopen
 
@@ -33,10 +33,44 @@ def getJavaVersions(version):
         exit(-1)
 
 def startDownloadingProcess(version, forceExit=True):
-    print("---------------------------------------------------------------")
+    #print("---------------------------------------------------------------")
     print("Stating downloading process with force exit: %s" % forceExit)
     print("Version: %s" % version)
-    print("---------------------------------------------------------------")
+
+    # This method will return all jdk versions that can compile the spigot versions
+    # We will loop for them in the decreasing order
+    validCompilers = getJavaVersions(version)
+
+    jv = -1
+    location = ""
+    
+    for compiler in list(reversed(validCompilers)):
+        currentBin = cfg.getbin(str(compiler))
+        
+        if (currentBin == -1):
+            continue
+
+        # Else here assign the compiler
+        location = currentBin
+        jv = compiler
+
+    # If no version is found then exit if force exit
+    if (jv == -1):
+        print("Make sure the right compiler for this version is in the config.json file!!")
+        print("This version supports java version in range from: %s" % str(validCompilers))
+
+        if (forceExit):
+            print("Exiting because no compiler was found, and force exit is set to true")
+            #print("---------------------------------------------------------------")
+            exit()
+
+        #print("---------------------------------------------------------------")
+        return
+
+    print("Determined compiler for version %s at location: `%s`" % (jv, location))
+    print("Another script will be loaded to ensure the installation goes smoothly")
+    print("Do not close this window!")
+   # print("---------------------------------------------------------------")
 
 # Read the json data
 data = json.load(file)
@@ -72,7 +106,6 @@ if (version != "all"):
     # Start downloading process
     startDownloadingProcess(version)
 else:
-    print(type(vld.versions))
     for version in list(reversed(vld.versions)):
         # Start this process for each version
         if (version != "all"):

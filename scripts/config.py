@@ -39,16 +39,20 @@ for i in data['versions']:
 
 # This method returns the bin folder depending on the java version provided
 def getbin(version):
-    if (version != "other"):
+    if (version != "other" and version in dic):
         return dic[version]
+
+    if version not in dic:
+        return -1
 
     # If it's other, return version different from 18, 17, 16
     for k in dic.keys():
         if (int(k) < 16):
             return dic[k]
 
-    print("Couldn't find the right version for this, exiting...")
-    exit()
+    return -1
+
+print(getbin("8"))
 
 # Close the config file
 file.close()
