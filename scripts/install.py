@@ -32,9 +32,14 @@ def getJavaVersions(version):
         print("Failed to grab data for version %s, code %d" % (version, e.code))
         exit(-1)
 
+def startDownloadingProcess(version, forceExit=True):
+    print("---------------------------------------------------------------")
+    print("Stating downloading process with force exit: %s" % forceExit)
+    print("Version: %s" % version)
+    print("---------------------------------------------------------------")
+
 # Read the json data
 data = json.load(file)
-
 if (len(sys.argv) != 2 or sys.argv[1] == ''):
     print("Must include <version> to install when running this script")
     print("Run this script with: ./install.sh <version>")
@@ -64,7 +69,14 @@ else:
     print("Found the install.sh file inside the data folder, continuing..")
 
 if (version != "all"):
-    
+    # Start downloading process
+    startDownloadingProcess(version)
+else:
+    print(type(vld.versions))
+    for version in list(reversed(vld.versions)):
+        # Start this process for each version
+        if (version != "all"):
+            startDownloadingProcess(version, forceExit=False)
 
 # Close the file to quit the process
 file.close()
