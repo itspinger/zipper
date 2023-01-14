@@ -1,6 +1,8 @@
-import json, os, sys, subprocess, validation as vld, config as cfg, start
-import urllib
+import json, os, sys, subprocess, urllib
 from urllib.request import urlopen
+
+# Import custom scripts
+import validation as vld, config as cfg
 
 file = open('../install.json')
 

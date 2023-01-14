@@ -1,0 +1,26 @@
+Loading BuildTools version: git-BuildTools-2f33f39-152 (#152)
+Java Version: Java 18
+Current Path: D:\Dica\Projekti\zipper\serverJars\BuildTools\.
+git version 2.38.1.windows.1
+Dimitrije Mijailovic
+pinger.business@gmail.com
+Picked up _JAVA_OPTIONS: -Djdk.net.URLClassPath.disableClassPathURLCheck=true
+java version "18.0.2.1" 2022-08-18
+Java(TM) SE Runtime Environment (build 18.0.2.1+1-1)
+Java HotSpot(TM) 64-Bit Server VM (build 18.0.2.1+1-1, mixed mode, sharing)
+Attempting to build version: '1.19.3' use --rev <version> to override
+Found version
+{
+	"name": "3638",
+	"description": "Jenkins build 3638",
+	"refs": {
+		"BuildData": "177811e1fa90f674897a302820f3ed84e4d65688",
+		"Bukkit": "79e3967192566bce29eb6688fc3abafa69a2be24",
+		"CraftBukkit": "7dcb59b8e27e0bbf2fa4c3091da80793caf4a8b6",
+		"Spigot": "d90018e043c1bdf8dd894701e61927c4f1a8b064"
+	},
+	"toolsVersion": 148,
+	"javaVersions": [61, 63]
+}
+
+Starting clone of https://hub.spigotmc.org/stash/scm/spigot/bukkit.git to Bukkit
