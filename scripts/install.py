@@ -4,8 +4,6 @@ from urllib.request import urlopen
 # Import custom scripts
 import validation as vld, config as cfg
 
-file = open('../install.json')
-
 # This method returns the java versions which can compile
 # The certain server version
 def getJavaVersions(version):
@@ -74,8 +72,6 @@ def startDownloadingProcess(version, outputDir, forceExit=True):
     po = subprocess.call([buildTools, outputDir, version, location + "\java"], shell=True)
     print("Script exited with code %s" % po)
 
-# Read the json data
-data = json.load(file)
 if (len(sys.argv) != 2 or sys.argv[1] == ''):
     print("Must include <version> to install when running this script")
     print("Run this script with: ./install.sh <version>")
@@ -83,7 +79,6 @@ if (len(sys.argv) != 2 or sys.argv[1] == ''):
 
 # Get the properties
 version = vld.validateInstallVersion(sys.argv[1])
-engine = vld.validateEngine(data)
 outputDir = vld.validateOutputDirectory()
 
 # Create a directory at the specified location
@@ -112,8 +107,5 @@ else:
         # Start this process for each version
         if (version != "all"):
             startDownloadingProcess(version, outputDir, forceExit=False)
-
-# Close the file to quit the process
-file.close()
 
 

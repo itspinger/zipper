@@ -109,6 +109,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+serverJars/
 
 # Spyder project settings
 .spyderproject

@@ -18,25 +18,6 @@ versions = [
     "latest", "all" # latest is the latest version, all will download all from this list
 ]
 
-# This method validates the engine that is going to be executing an action
-# Only allowed engine so far is spigot (paperspigot might be added also)
-# Data should be passed from the .json file loaded
-def validateEngine(data):
-    if not("engine" in data):
-        print("Error: Source Engine must be defined")
-        exit()
-
-    # Get the engine
-    engine = data['engine']
-
-    # Check if the engine is spigot (the only one we currently allow)
-    if (engine != 'spigot'):
-        print("Error: Unknown Source Engine")
-        exit()
-
-    print("Detected a valid source engine: Spigot")
-    return engine
-
 # This method validates the version to install
 # Allowed versions are defined in the list above
 def validateInstallVersion(version):
