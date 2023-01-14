@@ -52,7 +52,5 @@ def getbin(version):
 
     return -1
 
-print(getbin("8"))
-
 # Close the config file
 file.close()
