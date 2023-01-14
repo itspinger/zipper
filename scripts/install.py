@@ -32,7 +32,7 @@ def getJavaVersions(version):
         print("Failed to grab data for version %s, code %d" % (version, e.code))
         exit(-1)
 
-def startDownloadingProcess(version, forceExit=True):
+def startDownloadingProcess(version, outputDir, forceExit=True):
     print("Stating downloading process with force exit: %s" % forceExit)
     print("Version: %s" % version)
 
@@ -52,6 +52,7 @@ def startDownloadingProcess(version, forceExit=True):
         # Else here assign the compiler
         location = currentBin
         jv = compiler
+        break
 
     # If no version is found then exit if force exit
     if (jv == -1):
@@ -68,7 +69,7 @@ def startDownloadingProcess(version, forceExit=True):
     print("Another script will be loaded to ensure the installation goes smoothly")
     print("Do not close this window!")
 
-    po = subprocess.call([buildTools, version, location + "\java"], shell=True)
+    po = subprocess.call([buildTools, outputDir, version, location + "\java"], shell=True)
     print("Script exited with code %s" % po)
 
 # Read the json data
@@ -103,12 +104,12 @@ else:
 
 if (version != "all"):
     # Start downloading process
-    startDownloadingProcess(version)
+    startDownloadingProcess(version, outputDir)
 else:
     for version in list(reversed(vld.versions)):
         # Start this process for each version
         if (version != "all"):
-            startDownloadingProcess(version, forceExit=False)
+            startDownloadingProcess(version, outputDir, forceExit=False)
 
 # Close the file to quit the process
 file.close()

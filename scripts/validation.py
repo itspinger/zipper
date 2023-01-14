@@ -54,5 +54,5 @@ def validateInstallVersion(version):
 # This directory must be defined, otherwise the program will exit
 def validateOutputDirectory():
     # Return the updated data
-    return os.path.join(cfg.installdir(), "serverJars")
+    return cfg.installdir()
     
