@@ -1,4 +1,4 @@
-import json, os, sys, subprocess, validation as vld, config as cfg
+import json, os, sys, subprocess, validation as vld, config as cfg, start
 import urllib
 from urllib.request import urlopen
 
@@ -33,7 +33,6 @@ def getJavaVersions(version):
         exit(-1)
 
 def startDownloadingProcess(version, forceExit=True):
-    #print("---------------------------------------------------------------")
     print("Stating downloading process with force exit: %s" % forceExit)
     print("Version: %s" % version)
 
@@ -61,16 +60,16 @@ def startDownloadingProcess(version, forceExit=True):
 
         if (forceExit):
             print("Exiting because no compiler was found, and force exit is set to true")
-            #print("---------------------------------------------------------------")
             exit()
 
-        #print("---------------------------------------------------------------")
         return
 
     print("Determined compiler for version %s at location: `%s`" % (jv, location))
     print("Another script will be loaded to ensure the installation goes smoothly")
     print("Do not close this window!")
-   # print("---------------------------------------------------------------")
+
+    po = subprocess.call([buildTools, version, location + "\java"], shell=True)
+    print("Script exited with code %s" % po)
 
 # Read the json data
 data = json.load(file)

@@ -28,9 +28,27 @@ def installdir():
 # That we are currently on
 def version(source):
     file = open(os.path.join(source, "../release"))
-    data = file.readline().split('.')[1]
+    
+    versionLine = ""
+    while not(versionLine.startswith("JAVA_VERSION")):
+        versionLine = file.readline()
+        #print(versionLine)
+        continue
+
+    # If it's less than java 9 the string will be "1.x.y.z"
+    # Where x is the actual version
+    # So we have to take that into account also
+    splitter = str(versionLine.split("\"")[1])
+    versionSplitter = splitter.split(".")
+    version = ""
+
+    if (versionSplitter == "1"):
+        version = versionSplitter[1]
+    else:
+        version = versionSplitter[0]
+    
     file.close()
-    return data;
+    return version;
 
 # Force update the data
 dic = {}
