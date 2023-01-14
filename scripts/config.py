@@ -38,6 +38,8 @@ for i in data['versions']:
     dic[version(i)] = i
 
 # This method returns the bin folder depending on the java version provided
+# Make sure to provide a string when using this method, and not an integer
+# Which will throw a KeyError exception with the key you were using
 def getbin(version):
     if (version != "other" and version in dic):
         return dic[version]
