@@ -5,7 +5,7 @@ A set of utilities for running spigot servers
 For this utility to run you must have a [``Python``](https://www.python.org/downloads/) installation on your computer. <br>
 Also, depending on the spigot version you want to install and switch between, you need to have Java <b>8, 16, 17 or 18 </b>installed.
 
-#### Configuration
+### Configuration
 Configuring zipper is quite easy and it shouldn't take more than a minute or two to set-up. <br>
 The only file you need to configure is the `config.json` file. When you first open it up it will look like this:
 
@@ -34,6 +34,29 @@ A valid configuration would look like this:
 	]
 }
 ```
+
+### Using this utility
+This utility is based off a few different scripts which have different functionality. Each script will be described briefly below.
+
+#### install.sh
+This script is used for installing a spigot version you specify in the parameters. <br>
+Correct way of running this script is: ``./install.sh <version>``, for example: ``./install.sh 1.19.3``
+
+This script will download BuildTools for you, and automatically create a server jar in the ``installDirectory`` which is configured inside of config.json.
+This means that once you run this script for a certain version, you don't have to install it again, but use ``build.sh`` and ``run.sh`` scripts.
+
+It is recommended to do ``./install.sh all``, if you are using this library to test your plugins. Although this may take a while to build,
+as there are over 15 workins that need building, it can still save you time afterwards.
+
+#### build.sh
+This script is used for grabbing a specific server version and placing it in your server folder. <br>
+Correct way of running this script is: ``./build.sh <version>``, for example: ``./build.sh 1.19.3``
+
+For this script to work, the version provided must be installed previously using the ``install.sh`` script. <br>
+If the version provided is not installed, the script will exit, and it will force you do install it.
+
+#### run.sh
+To be added!
 
 
 ### License
