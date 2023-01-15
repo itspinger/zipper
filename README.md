@@ -9,7 +9,7 @@ Also, depending on the spigot version you want to install and switch between, yo
 Configuring zipper is quite easy and it shouldn't take more than a minute or two to set-up. <br>
 The only file you need to configure is the `config.json` file. When you first open it up it will look like this:
 
-```json
+```json5
 {
 	"installDirectory": "$", // This is the directory where the plugins from the install.sh will be placed 
 	"buildDirectory": "$", // This is the directory where your spigot.jar for running the server is located
@@ -22,9 +22,9 @@ When defining the ``versions`` section in the file, make sure to point to the bi
 what version it is actually referring to. <br>
 A valid configuration would look like this:
 
-```json
+```json5
 {
-	"installDirectory": "D:/Dica/Server/zipper/serverJars", // Make sure to put this in a separate folder from the actual build directory
+	"installDirectory": "D:/Dica/Server/zipper/serverJars", // Make sure to put this in a separate folder from the actual build directory *//
 	"buildDirectory": "D:/Dica/Projekti/zipper",
 	"buildName": "spigot.jar",
 	"versions": [
