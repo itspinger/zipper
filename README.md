@@ -45,7 +45,7 @@ Correct way of running this script is: ``./install.sh <version>``, for example: 
 This script will download BuildTools for you, and automatically create a server jar in the ``installDirectory`` which is configured inside of config.json.
 This means that once you run this script for a certain version, you don't have to install it again, but use ``build.sh`` and ``run.sh`` scripts.
 
-It is recommended to do ``./install.sh all``, if you are using this library to test your plugins. Although this may take a while to build,
+It is recommended to do ``./install.sh all``, if you are using this library to test your plugins. This will install all versions that are currently active within BuildTools. Although this may take a while to build,
 as there are over 15 workins that need building, it can still save you time afterwards.
 
 #### build.sh
