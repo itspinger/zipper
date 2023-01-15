@@ -1,2 +1,2 @@
 cd scripts
-python -u install.py "$1"
+python -u build.py "$1"

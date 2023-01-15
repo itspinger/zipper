@@ -1,9 +1,10 @@
 {
-	"installDirectory": "D:\\Dica\\Projekti\\zipper\\serverJars",
-	"buildDirectory": "./",
+	"installDirectory": "D:/Dica/Projekti/zipper/serverJars",
+	"buildDirectory": "D:/Dica/Projekti/zipper",
+	"buildName": "spigot.jar",
 	"versions": [
-		"C:\\Program Files\\Java\\jdk1.8.0_281\\bin",
-		"C:\\Program Files\\Java\\jdk-18.0.2.1\\bin",
+		"C:/Program Files/Java/jdk1.8.0_281/bin",
+		"C:/Program Files/Java/jdk-18.0.2.1/bin",
 		"C:\\Program Files\\Java\\jdk-17.0.4\\bin"
 	]
 }

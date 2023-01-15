@@ -16,13 +16,20 @@ if "installDirectory" not in data:
 
 # This method returns the location of the build directory
 # That is used for storing the actual server jar that is supposed to be run
-def buildir():
+def builddir():
     return data['buildDirectory']
 
 # This method returns the location of the install directory
 # That is used for storing jars 
 def installdir():
     return data['installDirectory']
+
+# Returns the build name, by default this should be spigot.jar
+def buildname():
+    if "buildName" not in data or data['buildName'] == "":
+        return ""
+
+    return data['buildName']
 
 # This method returns the version of the java release
 # That we are currently on
