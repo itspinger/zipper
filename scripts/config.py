@@ -5,12 +5,12 @@ file = open("../config.json")
 data = json.load(file)
 
 # Check if build dir exists
-if "buildDirectory" not in data:
+if "buildDirectory" not in data or "buildDirectory" == "$":
     print("Couldn't find the build directory path, exiting...")
     exit()
 
 # Check if install dir exists
-if "installDirectory" not in data:
+if "installDirectory" not in data or "installDirectory" == "$":
     print("Couldn't find an install directory path, exiting...")
     exit()
 

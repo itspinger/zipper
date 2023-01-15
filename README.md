@@ -3,7 +3,38 @@ A set of utilities for running spigot servers
 
 ### Installation
 For this utility to run you must have a [``Python``](https://www.python.org/downloads/) installation on your computer. <br>
-Also, depending on the spigot version you want to install and switch between, you need to have Java 8, 16, 17 or 18 installed.
+Also, depending on the spigot version you want to install and switch between, you need to have Java <b>8, 16, 17 or 18 </b>installed.
+
+#### Configuration
+Configuring zipper is quite easy and it shouldn't take more than a minute or two to set-up. <br>
+The only file you need to configure is the `config.json` file. When you first open it up it will look like this:
+
+```json
+{
+	"installDirectory": "$", // This is the directory where the plugins from the install.sh will be placed 
+	"buildDirectory": "$", // This is the directory where your spigot.jar for running the server is located
+	"buildName": "spigot.jar", // This is the name of your jar that will be placed in the build directory
+	"versions": [] // Java Bin Locations 
+}
+```
+
+When defining the ``versions`` section in the file, make sure to point to the bin directory, so the script can read 
+what version it is actually referring to. <br>
+A valid configuration would look like this:
+
+```json
+{
+	"installDirectory": "D:/Dica/Server/zipper/serverJars", // Make sure to put this in a separate folder from the actual build directory
+	"buildDirectory": "D:/Dica/Projekti/zipper",
+	"buildName": "spigot.jar",
+	"versions": [
+		"C:/Program Files/Java/jdk1.8.0_281/bin", // You can either do / or \\ when copying
+		"C:/Program Files/Java/jdk-18.0.2.1/bin", // Do make sure to point to the bin folder
+		"C:\\Program Files\\Java\\jdk-17.0.4\\bin"
+	]
+}
+```
+
 
 ### License
 ```
