@@ -1,5 +1,5 @@
-<img src = "https://imgur.com/a2TE3J4.png" align = "right" height = "90px"></img>
-# zipper
+<img src = "https://imgur.com/gbqLnnM.png" align = "right"></img>
+# zippo
 A set of utilities for running spigot servers 
 
 ### Installation
