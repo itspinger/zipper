@@ -1,4 +1,4 @@
-<img src = "https://imgur.com/a2TE3J4.png" align = "right"></img>
+<img src = "https://imgur.com/a2TE3J4.png" align = "right" height = "90px"></img>
 # zipper
 A set of utilities for running spigot servers 
 
